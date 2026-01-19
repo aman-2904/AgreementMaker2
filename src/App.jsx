@@ -8,6 +8,9 @@ function App() {
   const [agreementData, setAgreementData] = useState({
     agreementDate: new Date().toISOString().split('T')[0],
     clientName: '',
+    clientDetailsName: '',
+    clientDetailsPhone: '',
+    clientDetailsAddress: '',
     djCutoffTime: '',
     hotelName: '',
     hotelAddress: '',

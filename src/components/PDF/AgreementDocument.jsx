@@ -150,7 +150,25 @@ const AgreementDocument = ({ data }) => {
                     </View>
                 </View>
 
-                <Text style={{ textAlign: 'left', marginBottom: 10 }}>AND</Text>
+                {/* Client Details */}
+                <View style={styles.section}>
+                    <Text style={[styles.bold, { textAlign: 'center', marginBottom: 5 }]}>Client Details:</Text>
+                    <View style={styles.row}>
+                        <Text style={styles.label}>Name:</Text>
+                        <Text style={styles.value}>{data.clientDetailsName || 'Shaadi Platform by Nosh N Shots'}</Text>
+                    </View>
+                    <View style={styles.row}>
+                        <Text style={styles.label}>Address:</Text>
+                        <Text style={[styles.value, { color: 'black', backgroundColor: 'transparent' }]}>{data.clientDetailsAddress || 'Shivani.sharma@noshnshots.com'}</Text>
+                    </View>
+                    <View style={styles.row}>
+                        <Text style={styles.label}>Contact:</Text>
+                        <Text style={[styles.value, { color: 'black', backgroundColor: 'transparent' }]}>{data.clientDetailsPhone || '+91 99908-7771'}</Text>
+                    </View>
+                </View>
+
+
+                <Text style={{ textAlign: 'left', marginBottom: 10 }}></Text>
 
                 {/* Hotel / Wedding Venue */}
                 <View style={styles.section}>

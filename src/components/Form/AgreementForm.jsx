@@ -75,6 +75,34 @@ const AgreementForm = ({ data, updateData }) => {
             </section>
 
             <section>
+                <SectionHeader title="Client Details" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <InputGroup
+                        label="Client Name (for PDF Section)"
+                        value={data.clientDetailsName}
+                        onChange={(e) => updateData('clientDetailsName', e.target.value)}
+                        placeholder="e.g. Rahul Verma"
+                    />
+                    <InputGroup
+                        label="Client Contact No"
+                        type="tel"
+                        value={data.clientDetailsPhone}
+                        onChange={(e) => updateData('clientDetailsPhone', e.target.value)}
+                        placeholder="e.g. +91 98765 43210"
+                    />
+                    <div className="md:col-span-2">
+                        <InputGroup
+                            label="Client Address"
+                            value={data.clientDetailsAddress}
+                            onChange={(e) => updateData('clientDetailsAddress', e.target.value)}
+                            rows={2}
+                            placeholder="Full residential address"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <section>
                 <SectionHeader title="Hotel / Wedding Venue Details" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="md:col-span-2">
