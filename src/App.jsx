@@ -30,7 +30,12 @@ function App() {
       { date: '30 Days prior to event', particulars: '20 % of overall total as final deposit', amount: '' },
     ],
     signatureEmail: '',
-    signatureContact: ''
+    signatureContact: '',
+    cancellationPolicy: [
+      { period: 'More than 180 days', fee: '25 % of Total Estimated Revenue (plus applicable taxes)' },
+      { period: 'Between 180- 120 days', fee: '50 % of Total Estimated Revenue (plus applicable taxes)' },
+      { period: 'Between 120-90 days', fee: '75 % of Total Estimated Revenue (plus applicable taxes)' },
+    ]
   });
 
   const updateAgreementData = (field, value) => {

@@ -320,19 +320,13 @@ const AgreementDocument = ({ data }) => {
                             <View style={[styles.tableColHeader, { width: '40%' }]}><Text style={styles.tableCellHeader}>Notification of cancellation (no. of days prior to event / Group)</Text></View>
                             <View style={[styles.tableColHeader, { width: '60%' }]}><Text style={styles.tableCellHeader}>Cancellation fee</Text></View>
                         </View>
-                        {/* Rows */}
-                        <View style={styles.tableRow}>
-                            <View style={[styles.tableCol, { width: '40%' }]}><Text style={[styles.tableCell, styles.bold]}>More than 180 days</Text></View>
-                            <View style={[styles.tableCol, { width: '60%' }]}><Text style={styles.tableCell}>25 % of Total Estimated Revenue (plus applicable taxes)</Text></View>
-                        </View>
-                        <View style={styles.tableRow}>
-                            <View style={[styles.tableCol, { width: '40%' }]}><Text style={[styles.tableCell, styles.bold]}>Between 180- 120 days</Text></View>
-                            <View style={[styles.tableCol, { width: '60%' }]}><Text style={styles.tableCell}>50 % of Total Estimated Revenue (plus applicable taxes)</Text></View>
-                        </View>
-                        <View style={styles.tableRow}>
-                            <View style={[styles.tableCol, { width: '40%' }]}><Text style={[styles.tableCell, styles.bold]}>Between 120-90 days</Text></View>
-                            <View style={[styles.tableCol, { width: '60%' }]}><Text style={styles.tableCell}>75 % of Total Estimated Revenue (plus applicable taxes)</Text></View>
-                        </View>
+                        {/* Dynamic Rows */}
+                        {data.cancellationPolicy && data.cancellationPolicy.map((term, index) => (
+                            <View style={styles.tableRow} key={index}>
+                                <View style={[styles.tableCol, { width: '40%' }]}><Text style={[styles.tableCell, styles.bold]}>{term.period || '-'}</Text></View>
+                                <View style={[styles.tableCol, { width: '60%' }]}><Text style={styles.tableCell}>{term.fee || '-'}</Text></View>
+                            </View>
+                        ))}
                     </View>
                 </View>
 
