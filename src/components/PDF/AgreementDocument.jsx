@@ -102,8 +102,6 @@ const styles = StyleSheet.create({
         fontFamily: 'Helvetica-Bold',
         textTransform: 'uppercase',
         color: 'black', // Dynamic client name is black/yellow highlighted in editor but black in PDF
-        backgroundColor: 'yellow', // Required by user input instruction: "YELLOW HIGHLIGHTED PARTS... ONLY the yellow-highlighted content is editable... NO yellow background in final PDF".
-        // Wait, "NO yellow background in final PDF". So backgroundColor should be transparent.
         backgroundColor: 'transparent',
     },
     bulletPoint: {
@@ -268,27 +266,14 @@ const AgreementDocument = ({ data }) => {
                             <View style={[styles.tableColHeader, { width: '50%' }]}><Text style={styles.tableCellHeader}>PARTICULARS</Text></View>
                             <View style={[styles.tableColHeader, { width: '25%' }]}><Text style={styles.tableCellHeader}>AMOUNT</Text></View>
                         </View>
-                        {/* Rows */}
-                        <View style={styles.tableRow}>
-                            <View style={[styles.tableCol, { width: '25%' }]}><Text style={[styles.tableCell, styles.bold]}>Date of Signing Contract</Text></View>
-                            <View style={[styles.tableCol, { width: '50%' }]}><Text style={styles.tableCell}>30 % of overall total as Initial Deposit</Text></View>
-                            <View style={[styles.tableCol, { width: '25%' }]}><Text style={styles.tableCell}>{data.initialDeposit || 'INR'}</Text></View>
-                        </View>
-                        <View style={styles.tableRow}>
-                            <View style={[styles.tableCol, { width: '25%' }]}><Text style={[styles.tableCell, styles.bold]}>90 days prior to event</Text></View>
-                            <View style={[styles.tableCol, { width: '50%' }]}><Text style={styles.tableCell}>30 % of overall total as Second Deposit</Text></View>
-                            <View style={[styles.tableCol, { width: '25%' }]}><Text style={styles.tableCell}>{data.secondDeposit || 'INR'}</Text></View>
-                        </View>
-                        <View style={styles.tableRow}>
-                            <View style={[styles.tableCol, { width: '25%' }]}><Text style={[styles.tableCell, styles.bold]}>60 days prior to event</Text></View>
-                            <View style={[styles.tableCol, { width: '50%' }]}><Text style={styles.tableCell}>20 % of overall total as Third Deposit</Text></View>
-                            <View style={[styles.tableCol, { width: '25%' }]}><Text style={styles.tableCell}>{data.thirdDeposit || 'INR'}</Text></View>
-                        </View>
-                        <View style={styles.tableRow}>
-                            <View style={[styles.tableCol, { width: '25%' }]}><Text style={[styles.tableCell, styles.bold]}>30 Days prior to event</Text></View>
-                            <View style={[styles.tableCol, { width: '50%' }]}><Text style={styles.tableCell}>20 % of overall total as final deposit</Text></View>
-                            <View style={[styles.tableCol, { width: '25%' }]}><Text style={styles.tableCell}>{data.finalDeposit || 'INR'}</Text></View>
-                        </View>
+                        {/* Dynamic Rows */}
+                        {data.paymentTerms && data.paymentTerms.map((term, index) => (
+                            <View style={styles.tableRow} key={index}>
+                                <View style={[styles.tableCol, { width: '25%' }]}><Text style={[styles.tableCell, styles.bold]}>{term.date || '-'}</Text></View>
+                                <View style={[styles.tableCol, { width: '50%' }]}><Text style={styles.tableCell}>{term.particulars || '-'}</Text></View>
+                                <View style={[styles.tableCol, { width: '25%' }]}><Text style={styles.tableCell}>{term.amount || '-'}</Text></View>
+                            </View>
+                        ))}
                     </View>
 
                     <Text>

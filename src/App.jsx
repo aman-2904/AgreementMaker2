@@ -18,11 +18,13 @@ function App() {
     numberOfGuests: '',
     venueAreas: '',
     currency: 'INR',
-    initialDeposit: '',
-    secondDeposit: '',
-    thirdDeposit: '',
-    finalDeposit: '',
     scheduledAdvanceDate: '',
+    paymentTerms: [
+      { date: 'Date of Signing Contract', particulars: '30 % of overall total as Initial Deposit', amount: 'INR' },
+      { date: '90 days prior to event', particulars: '30 % of overall total as Second Deposit', amount: 'INR' },
+      { date: '60 days prior to event', particulars: '20 % of overall total as Third Deposit', amount: 'INR' },
+      { date: '30 Days prior to event', particulars: '20 % of overall total as final deposit', amount: 'INR' },
+    ],
     signatureEmail: '',
     signatureContact: ''
   });
@@ -51,8 +53,8 @@ function App() {
               <button
                 disabled={loading}
                 className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-white shadow-lg transition-all transform hover:scale-105 active:scale-95 ${loading
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-indigo-500/30'
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-indigo-500/30'
                   }`}
               >
                 <FileDown size={18} />
