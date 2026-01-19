@@ -116,6 +116,26 @@ const styles = StyleSheet.create({
     }
 });
 
+const formatDate = (dateString) => {
+    if (!dateString) return '';
+    const parts = dateString.split('-');
+    if (parts.length === 3 && parts[0].length === 4) {
+        const [year, month, day] = parts;
+        return `${day}-${month}-${year}`;
+    }
+    return dateString;
+};
+
+const formatTime = (timeString) => {
+    if (!timeString) return '';
+    const [hours, minutes] = timeString.split(':');
+    if (!hours || !minutes) return timeString;
+    const h = parseInt(hours, 10);
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const h12 = h % 12 || 12;
+    return `${h12}:${minutes} ${ampm}`;
+};
+
 const AgreementDocument = ({ data }) => {
     return (
         <Document>
@@ -129,7 +149,7 @@ const AgreementDocument = ({ data }) => {
 
                 <View style={styles.section}>
                     <Text>
-                        This Agreement is made on <Text style={styles.bold}>{data.agreementDate || '[Date]'}</Text>, by and between:
+                        This Agreement is made on <Text style={styles.bold}>{formatDate(data.agreementDate) || '[Date]'}</Text>, by and between:
                     </Text>
                 </View>
 
@@ -295,7 +315,7 @@ const AgreementDocument = ({ data }) => {
                     </View>
 
                     <Text>
-                        To confirm booking for the Event, request you to send us a signed copy of this Agreement, a copy of the PAN card /or GST Registration Copy (as applicable) along with scheduled advances on <Text style={styles.bold}>{data.scheduledAdvanceDate || 'Date'}</Text>.
+                        To confirm booking for the Event, request you to send us a signed copy of this Agreement, a copy of the PAN card /or GST Registration Copy (as applicable) along with scheduled advances on <Text style={styles.bold}>{formatDate(data.scheduledAdvanceDate) || 'Date'}</Text>.
                     </Text>
                 </View>
 
@@ -408,7 +428,7 @@ const AgreementDocument = ({ data }) => {
                 <View style={styles.section}>
                     <Text style={[styles.bold, { marginBottom: 5 }]}>AUDIO, LIGHT & DRONE POLICY</Text>
                     {['Sound restrictions as per local authority norms',
-                        `DJ/music cutoff time: ${data.djCutoffTime || '[Time]'}`,
+                        `DJ/music cutoff time: ${formatTime(data.djCutoffTime) || '[Time]'}`,
                         'Drone usage allowed only with written approval and legal permits',
                         'Poolside and restricted areas excluded unless permitted'].map((item, i) => (
                             <View key={i} style={styles.bulletPoint}>
