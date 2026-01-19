@@ -234,6 +234,18 @@ const AgreementForm = ({ data, updateData }) => {
             </section>
 
             <section>
+                <SectionHeader title="Legal Information" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <InputGroup
+                        label="Jurisdiction City / State"
+                        value={data.jurisdiction}
+                        onChange={(e) => updateData('jurisdiction', e.target.value)}
+                        placeholder="e.g. Jaipur Rajasthan"
+                    />
+                </div>
+            </section>
+
+            <section>
                 <SectionHeader title="Signature Section" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <InputGroup

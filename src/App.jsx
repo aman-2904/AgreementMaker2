@@ -18,6 +18,7 @@ function App() {
     numberOfGuests: '',
     venueAreas: '',
     currency: '',
+    jurisdiction: '',
     scheduledAdvanceDate: '',
     paymentTerms: [
       { date: 'Date of Signing Contract', particulars: '30 % of overall total as Initial Deposit', amount: '' },
