@@ -17,13 +17,13 @@ function App() {
     eventDates: '',
     numberOfGuests: '',
     venueAreas: '',
-    currency: 'INR',
+    currency: '',
     scheduledAdvanceDate: '',
     paymentTerms: [
-      { date: 'Date of Signing Contract', particulars: '30 % of overall total as Initial Deposit', amount: 'INR' },
-      { date: '90 days prior to event', particulars: '30 % of overall total as Second Deposit', amount: 'INR' },
-      { date: '60 days prior to event', particulars: '20 % of overall total as Third Deposit', amount: 'INR' },
-      { date: '30 Days prior to event', particulars: '20 % of overall total as final deposit', amount: 'INR' },
+      { date: 'Date of Signing Contract', particulars: '30 % of overall total as Initial Deposit', amount: '' },
+      { date: '90 days prior to event', particulars: '30 % of overall total as Second Deposit', amount: '' },
+      { date: '60 days prior to event', particulars: '20 % of overall total as Third Deposit', amount: '' },
+      { date: '30 Days prior to event', particulars: '20 % of overall total as final deposit', amount: '' },
     ],
     signatureEmail: '',
     signatureContact: ''

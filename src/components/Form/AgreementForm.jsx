@@ -147,10 +147,10 @@ const AgreementForm = ({ data, updateData }) => {
                 <div className="grid grid-cols-1 gap-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <InputGroup
-                            label="Currency"
-                            options={['INR', 'USD', 'EUR', 'GBP']}
+                            label="Total Contract Value / Currency"
                             value={data.currency}
                             onChange={(e) => updateData('currency', e.target.value)}
+                            placeholder="e.g. 5,00,000 or INR"
                         />
                         <InputGroup
                             label="Scheduled Advance Date"
