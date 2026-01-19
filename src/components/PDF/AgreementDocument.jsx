@@ -264,16 +264,6 @@ const AgreementDocument = ({ data }) => {
                         ))}
                 </View>
 
-                {/* Footer for Page 1 */}
-                <View style={styles.footer} fixed>
-                    <Text style={styles.footerTextLeft}>{data.clientName || 'CLIENT NAME'}</Text>
-                    <Text style={{ fontFamily: 'Helvetica-Bold' }}>MS. SHIVANI</Text>
-                </View>
-            </Page>
-
-            {/* PAGE 2 */}
-            <Page size="A4" style={styles.page}>
-
                 {/* ROLE OF MANAGEMENT AGENCY */}
                 <View style={styles.section}>
                     <Text style={[styles.bold, { marginBottom: 5 }]}>ROLE OF MANAGEMENT AGENCY</Text>
@@ -368,16 +358,6 @@ const AgreementDocument = ({ data }) => {
                     </Text>
                 </View>
 
-                {/* Footer for Page 2 */}
-                <View style={styles.footer} fixed>
-                    <Text style={styles.footerTextLeft}>{data.clientName || 'CLIENT NAME'}</Text>
-                    <Text style={{ fontFamily: 'Helvetica-Bold' }}>MS. SHIVANI</Text>
-                </View>
-            </Page>
-
-            {/* PAGE 3 */}
-            <Page size="A4" style={styles.page}>
-
                 {/* INDEMNIFICATION AND HOLD HARMLESS */}
                 <View style={styles.section}>
                     <Text style={[styles.bold, { marginBottom: 5 }]}>INDEMNIFICATION AND HOLD HARMLESS</Text>
@@ -450,16 +430,6 @@ const AgreementDocument = ({ data }) => {
                             </View>
                         ))}
                 </View>
-
-                {/* Footer for Page 3 */}
-                <View style={styles.footer} fixed>
-                    <Text style={styles.footerTextLeft}>{data.clientName || 'CLIENT NAME'}</Text>
-                    <Text style={{ fontFamily: 'Helvetica-Bold' }}>MS. SHIVANI</Text>
-                </View>
-            </Page>
-
-            {/* PAGE 4 */}
-            <Page size="A4" style={styles.page}>
 
                 {/* SAFETY & COMPLIANCE */}
                 <View style={styles.section}>
@@ -541,16 +511,6 @@ const AgreementDocument = ({ data }) => {
                     </Text>
                 </View>
 
-                {/* Footer for Page 4 */}
-                <View style={styles.footer} fixed>
-                    <Text style={styles.footerTextLeft}>{data.clientName || 'CLIENT NAME'}</Text>
-                    <Text style={{ fontFamily: 'Helvetica-Bold' }}>MS. SHIVANI</Text>
-                </View>
-            </Page>
-
-            {/* PAGE 5 - LICENSES AND SIGNATURE */}
-            <Page size="A4" style={styles.page}>
-
                 {/* LICENSES & PERMISSIONS POLICY */}
                 <View style={styles.section}>
                     <Text style={[styles.bold, { marginBottom: 5 }]}>LICENSES & PERMISSIONS POLICY (HOTEL GUIDELINES)</Text>
@@ -624,7 +584,7 @@ const AgreementDocument = ({ data }) => {
                     </View>
                 </View>
 
-                {/* Footer for Page 5 */}
+                {/* Fixed Footer for all pages */}
                 <View style={styles.footer} fixed>
                     <Text style={styles.footerTextLeft}>{data.clientName || 'CLIENT NAME'}</Text>
                     <Text style={{ fontFamily: 'Helvetica-Bold' }}>MS. SHIVANI</Text>
