@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Helvetica-Bold',
     },
     tableCell: {
-        margin: "auto",
+        margin: 5,
         fontSize: 10,
         textAlign: 'left'
     },
@@ -549,17 +549,13 @@ const AgreementDocument = ({ data }) => {
                             <View style={[styles.tableCol, { height: 50, borderRightWidth: 0, borderBottomWidth: 1 }]}></View>
                             <View style={[styles.tableCol, { height: 50, borderLeftWidth: 1, borderBottomWidth: 1 }]}></View>
                         </View>
-                        <View style={styles.tableRow}>
-                            <View style={[styles.tableCol, { borderTopWidth: 0, borderBottomWidth: 0 }]}><Text style={{ textAlign: 'center' }}>- - - - - - - - - - - - - - - - - -</Text></View>
-                            <View style={[styles.tableCol, { borderLeftWidth: 1, borderTopWidth: 0, borderBottomWidth: 0 }]}><Text style={{ textAlign: 'center' }}>- - - - - - - - - - - - - - - - - -</Text></View>
-                        </View>
                         {/* Labels Row */}
                         <View style={styles.tableRow}>
-                            <View style={[styles.tableCol, { borderTopWidth: 0, flexDirection: 'row', justifyContent: 'space-between' }]}>
+                            <View style={[styles.tableCol, { borderTopWidth: 0, flexDirection: 'row', gap: 60 }]}>
                                 <Text style={[styles.tableCell, styles.bold]}>Signature</Text>
                                 <Text style={[styles.tableCell, styles.bold]}>Date</Text>
                             </View>
-                            <View style={[styles.tableCol, { borderLeftWidth: 1, borderTopWidth: 0, flexDirection: 'row', justifyContent: 'space-between' }]}>
+                            <View style={[styles.tableCol, { borderLeftWidth: 1, borderTopWidth: 0, flexDirection: 'row', gap: 60 }]}>
                                 <Text style={[styles.tableCell, styles.bold]}>Signature</Text>
                                 <Text style={[styles.tableCell, styles.bold]}>Date</Text>
                             </View>
@@ -567,7 +563,7 @@ const AgreementDocument = ({ data }) => {
                         {/* Inputs Row 1 */}
                         <View style={styles.tableRow}>
                             <View style={styles.tableCol}><Text style={[styles.tableCell, styles.bold]}>SHIVANI S BHARDWAJ</Text></View>
-                            <View style={styles.tableCol}><Text style={[styles.tableCell, styles.bold, { textTransform: 'uppercase' }]}>{data.clientName || 'CLIENT NAME'}:</Text></View>
+                            <View style={styles.tableCol}><Text style={[styles.tableCell, { backgroundColor: 'transparent', fontWeight: 'bold' }]}>CLIENT NAME: {data.clientName || 'CLIENT NAME'}</Text></View>
                         </View>
                         {/* Inputs Row 2 */}
                         <View style={styles.tableRow}>
