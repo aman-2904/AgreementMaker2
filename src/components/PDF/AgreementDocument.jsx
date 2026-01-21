@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Font, Image } from '@react-pdf/renderer';
 
 // Create styles
 const styles = StyleSheet.create({
@@ -143,6 +143,10 @@ const AgreementDocument = ({ data }) => {
 
                 {/* Header */}
                 <View style={styles.header}>
+                    <Image
+                        src="/splogo1.png"
+                        style={{ width: 80, height: 80, marginBottom: 10, alignSelf: 'center' }}
+                    />
                     <Text style={styles.title}>HOTEL & WEDDING VENUE AGREEMENT</Text>
                     <Text style={styles.subtitle}>(Provided by the Shaadi Platform by Nosh N Shots)</Text>
                 </View>
