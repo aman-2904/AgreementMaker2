@@ -314,7 +314,7 @@ const AgreementDocument = ({ data }) => {
                 </View>
 
                 {/* CANCELLATION & REFUND POLICY */}
-                <View style={styles.section}>
+                <View style={styles.section} wrap={false}>
                     <Text style={[styles.bold, { marginBottom: 5 }]}>CANCELLATION & REFUND POLICY</Text>
                     <Text style={{ marginBottom: 10 }}>If the Event is partially or entirely cancelled, the Hotel must be notified in writing. The Initial Deposit is non-refundable and shall be forfeited in the event of any cancellation. Additionally, Cancellation Fee is calculated as per table below.</Text>
 
