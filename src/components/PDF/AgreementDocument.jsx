@@ -305,6 +305,17 @@ const AgreementDocument = ({ data }) => {
                     </View>
                 </View>
 
+                {/* Inclusions */}
+                <View style={styles.section}>
+                    <Text style={[styles.bold, { marginBottom: 5 }]}>Inclusions:</Text>
+                    {data.inclusions && data.inclusions.map((item, i) => (
+                        <View key={i} style={styles.bulletPoint}>
+                            <Text style={styles.bullet}>{'>'}</Text>
+                            <Text>{item}</Text>
+                        </View>
+                    ))}
+                </View>
+
                 <View style={styles.section}>
                     <Text style={styles.bold}>ENSURE COMPLIANCE WITH VENUE POLICIES</Text>
                 </View>

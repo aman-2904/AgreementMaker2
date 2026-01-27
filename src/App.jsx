@@ -40,6 +40,20 @@ function App() {
       { arrival: "28th Apr'2026", time: "1500 Hours", totalRooms: "50 Rooms (100 pax)", rates: "20,400.00" },
       { arrival: "29th Apr'2026", time: "1500 Hours", totalRooms: "120Rooms (240 guests)", rates: "27,000.00" },
       { arrival: "30th Apr'2026", time: "Stay Over", totalRooms: "120 Rooms (240 guests)", rates: "27,000.00" },
+    ],
+    inclusions: [
+      'Mix of room categories: 36 Fire Villa (A Block), 10 Bamboo Villa, and 2 Earth Villa (4 Rooms) on 28th Apr’2026',
+      'Mix of room categories: 36 Fire Villa (A Block), 36 Fire Villa (B Block), 18 Bamboo Villa, 3 Earth Villa (6 Rooms), 24 Lagoon Villa on 29th & 30th Apr’2026',
+      'Buffet breakfast at designated area on 29th, 30th Apr., and 01st May’2026',
+      'Buffet Hi tea and buffet dinner at Nilgiri Hall for 29th Apr’2026',
+      'Buffet lunch and buffet dinner at exclusive venue for 29th & 30th Apr’2026.',
+      'Aravali Banquet Hall, Aravali Lawn, Pool Deck, Nilgiri lawn, Nilgiri Hall will be part of the package for the rituals and the wedding ceremonies for 2 days.',
+      'Iron/iron board in all the rooms.',
+      'Welcome drink on arrival.',
+      'Tea/coffee maker facility in the room.',
+      'Swimming pool is included. (as per government guidelines with costume mandatory)',
+      'Wi-Fi in all rooms.',
+      '04 bottles of mineral water (500ml) in room replenish daily.',
     ]
   });
 
