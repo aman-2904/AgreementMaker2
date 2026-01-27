@@ -282,6 +282,29 @@ const AgreementDocument = ({ data }) => {
                         ))}
                 </View>
 
+                {/* Accommodation Details */}
+                <View style={styles.section}>
+                    <Text style={[styles.bold, { marginBottom: 5 }]}>Accommodation Details: -</Text>
+                    <View style={styles.table}>
+                        {/* Header */}
+                        <View style={styles.tableRow}>
+                            <View style={[styles.tableColHeader, { width: '20%' }]}><Text style={styles.tableCellHeader}>Arrival</Text></View>
+                            <View style={[styles.tableColHeader, { width: '20%' }]}><Text style={styles.tableCellHeader}>Time</Text></View>
+                            <View style={[styles.tableColHeader, { width: '40%' }]}><Text style={styles.tableCellHeader}>Total Rooms</Text></View>
+                            <View style={[styles.tableColHeader, { width: '20%' }]}><Text style={styles.tableCellHeader}>Rates</Text></View>
+                        </View>
+                        {/* Dynamic Rows */}
+                        {data.accommodationDetails && data.accommodationDetails.map((detail, index) => (
+                            <View style={styles.tableRow} key={index}>
+                                <View style={[styles.tableCol, { width: '20%' }]}><Text style={[styles.tableCell, styles.bold]}>{detail.arrival || '-'}</Text></View>
+                                <View style={[styles.tableCol, { width: '20%' }]}><Text style={styles.tableCell}>{detail.time || '-'}</Text></View>
+                                <View style={[styles.tableCol, { width: '40%' }]}><Text style={styles.tableCell}>{detail.totalRooms || '-'}</Text></View>
+                                <View style={[styles.tableCol, { width: '20%' }]}><Text style={styles.tableCell}>{detail.rates || '-'}</Text></View>
+                            </View>
+                        ))}
+                    </View>
+                </View>
+
                 <View style={styles.section}>
                     <Text style={styles.bold}>ENSURE COMPLIANCE WITH VENUE POLICIES</Text>
                 </View>

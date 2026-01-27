@@ -171,6 +171,95 @@ const AgreementForm = ({ data, updateData }) => {
             </section>
 
             <section>
+                <SectionHeader title="Accommodation Allocation Details" />
+                <div className="grid grid-cols-1 gap-5">
+                    <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">Room Allocation</label>
+                        <div className="space-y-3">
+                            {data.accommodationDetails?.map((detail, index) => (
+                                <div key={index} className="flex gap-2 items-start bg-gray-50/50 p-2 rounded-lg border border-gray-200">
+                                    <div className="flex-1">
+                                        <input
+                                            type="text"
+                                            placeholder="Arrival"
+                                            value={detail.arrival}
+                                            onChange={(e) => {
+                                                const newDetails = [...data.accommodationDetails];
+                                                newDetails[index].arrival = e.target.value;
+                                                updateData('accommodationDetails', newDetails);
+                                            }}
+                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                        />
+                                    </div>
+                                    <div className="flex-1">
+                                        <input
+                                            type="text"
+                                            placeholder="Time"
+                                            value={detail.time}
+                                            onChange={(e) => {
+                                                const newDetails = [...data.accommodationDetails];
+                                                newDetails[index].time = e.target.value;
+                                                updateData('accommodationDetails', newDetails);
+                                            }}
+                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                        />
+                                    </div>
+                                    <div className="flex-[2]">
+                                        <input
+                                            type="text"
+                                            placeholder="Total Rooms"
+                                            value={detail.totalRooms}
+                                            onChange={(e) => {
+                                                const newDetails = [...data.accommodationDetails];
+                                                newDetails[index].totalRooms = e.target.value;
+                                                updateData('accommodationDetails', newDetails);
+                                            }}
+                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                        />
+                                    </div>
+                                    <div className="flex-1">
+                                        <input
+                                            type="text"
+                                            placeholder="Rates"
+                                            value={detail.rates}
+                                            onChange={(e) => {
+                                                const newDetails = [...data.accommodationDetails];
+                                                newDetails[index].rates = e.target.value;
+                                                updateData('accommodationDetails', newDetails);
+                                            }}
+                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                        />
+                                    </div>
+                                    {data.accommodationDetails.length > 1 && (
+                                        <button
+                                            onClick={() => {
+                                                const newDetails = data.accommodationDetails.filter((_, i) => i !== index);
+                                                updateData('accommodationDetails', newDetails);
+                                            }}
+                                            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                                            title="Remove Row"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /></svg>
+                                        </button>
+                                    )}
+                                </div>
+                            ))}
+                            <button
+                                onClick={() => {
+                                    const newDetails = [...data.accommodationDetails, { arrival: '', time: '', totalRooms: '', rates: '' }];
+                                    updateData('accommodationDetails', newDetails);
+                                }}
+                                className="mt-2 text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+                                Add Row
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
                 <SectionHeader title="Payment Details" />
                 <div className="grid grid-cols-1 gap-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

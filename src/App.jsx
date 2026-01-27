@@ -35,6 +35,11 @@ function App() {
       { period: 'More than 180 days', fee: '25 % of Total Estimated Revenue (plus applicable taxes)' },
       { period: 'Between 180- 120 days', fee: '50 % of Total Estimated Revenue (plus applicable taxes)' },
       { period: 'Between 120-90 days', fee: '75 % of Total Estimated Revenue (plus applicable taxes)' },
+    ],
+    accommodationDetails: [
+      { arrival: "28th Apr'2026", time: "1500 Hours", totalRooms: "50 Rooms (100 pax)", rates: "20,400.00" },
+      { arrival: "29th Apr'2026", time: "1500 Hours", totalRooms: "120Rooms (240 guests)", rates: "27,000.00" },
+      { arrival: "30th Apr'2026", time: "Stay Over", totalRooms: "120 Rooms (240 guests)", rates: "27,000.00" },
     ]
   });
 
