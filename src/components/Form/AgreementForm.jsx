@@ -487,6 +487,18 @@ const AgreementForm = ({ data, updateData }) => {
                             Add Line
                         </button>
                     </div>
+
+                    <div className="space-y-2">
+                        <label className="block text-sm font-semibold text-gray-700">Payment Link Note (Use **text** for bold)</label>
+                        <textarea
+                            rows={3}
+                            value={data.paymentNote || ''}
+                            onChange={(e) => updateData('paymentNote', e.target.value)}
+                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-3 border"
+                            placeholder="Note text..."
+                        />
+                    </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <InputGroup
                             label="Scheduled Advance Date"

@@ -136,6 +136,23 @@ const formatTime = (timeString) => {
     return `${h12}:${minutes} ${ampm}`;
 };
 
+// Helper to render text with bold markers (**text**)
+const renderFormattedText = (text, style = {}) => {
+    if (!text) return null;
+    const parts = text.split(/(\*\*.*?\*\*)/g).filter(part => part); // Filter out empty strings
+    return (
+        <Text style={style}>
+            {parts.map((part, index) => {
+                if (part.startsWith('**') && part.endsWith('**') && part.length >= 4) {
+                    const boldText = part.slice(2, -2);
+                    return <Text key={index} style={styles.bold}>{boldText}</Text>;
+                }
+                return <Text key={index}>{part}</Text>;
+            })}
+        </Text>
+    );
+};
+
 const AgreementDocument = ({ data }) => {
     return (
         <Document>
@@ -358,9 +375,9 @@ const AgreementDocument = ({ data }) => {
                     <Text style={{ marginBottom: 5 }}>As agreed, the deposit schedule for your block will be as per this schedule: <Text style={styles.bold}>{data.currency || 'INR'}</Text></Text>
 
                     {(data.additionalPaymentText || []).map((text, index) => (
-                        <Text key={index} style={{ marginBottom: index === (data.additionalPaymentText.length - 1) ? 5 : 2 }}>
-                            {text}
-                        </Text>
+                        <View key={index}>
+                            {renderFormattedText(text, { marginBottom: index === (data.additionalPaymentText.length - 1) ? 5 : 2 })}
+                        </View>
                     ))}
 
                     <View style={styles.table}>
@@ -383,6 +400,12 @@ const AgreementDocument = ({ data }) => {
                     <Text>
                         To confirm booking for the Event, request you to send us a signed copy of this Agreement, a copy of the PAN card /or GST Registration Copy (as applicable) along with scheduled advances on <Text style={styles.bold}>{formatDate(data.scheduledAdvanceDate) || 'Date'}</Text>.
                     </Text>
+
+                    {data.paymentNote && (
+                        <View style={{ marginTop: 10 }}>
+                            {renderFormattedText(data.paymentNote)}
+                        </View>
+                    )}
                 </View>
 
                 {/* CANCELLATION & REFUND POLICY */}

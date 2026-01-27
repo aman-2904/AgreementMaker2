@@ -32,6 +32,7 @@ function App() {
     signatureEmail: '',
     signatureContact: '',
     additionalPaymentText: [],
+    paymentNote: '**Note** - A management fee of **10%** shall be applicable, depending on the scope of services. The **5% management fee** will apply when **end-to-end services** are provided.',
     cancellationPolicy: [
       { period: 'More than 180 days', fee: '25 % of Total Estimated Revenue (plus applicable taxes)' },
       { period: 'Between 180- 120 days', fee: '50 % of Total Estimated Revenue (plus applicable taxes)' },
