@@ -448,6 +448,46 @@ const AgreementForm = ({ data, updateData }) => {
                             onChange={(e) => updateData('currency', e.target.value)}
                             placeholder="e.g. 5,00,000 or INR"
                         />
+                    </div>
+                    <div className="space-y-3">
+                        <label className="block text-sm font-semibold text-gray-700">Additional Payment Details</label>
+                        {(data.additionalPaymentText || []).map((text, index) => (
+                            <div key={index} className="flex gap-2 items-center">
+                                <input
+                                    type="text"
+                                    value={text}
+                                    onChange={(e) => {
+                                        const newText = [...(data.additionalPaymentText || [])];
+                                        newText[index] = e.target.value;
+                                        updateData('additionalPaymentText', newText);
+                                    }}
+                                    placeholder="e.g. INR 1,12,500.00 to be deposited as token..."
+                                    className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                />
+                                <button
+                                    onClick={() => {
+                                        const newText = data.additionalPaymentText.filter((_, i) => i !== index);
+                                        updateData('additionalPaymentText', newText);
+                                    }}
+                                    className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                                    title="Remove Line"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /></svg>
+                                </button>
+                            </div>
+                        ))}
+                        <button
+                            onClick={() => {
+                                const newText = [...(data.additionalPaymentText || []), ''];
+                                updateData('additionalPaymentText', newText);
+                            }}
+                            className="text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+                            Add Line
+                        </button>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <InputGroup
                             label="Scheduled Advance Date"
                             type="date"
@@ -455,76 +495,76 @@ const AgreementForm = ({ data, updateData }) => {
                             onChange={(e) => updateData('scheduledAdvanceDate', e.target.value)}
                         />
                     </div>
+                </div>
 
-                    <div className="mt-2">
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">Payment Terms</label>
-                        <div className="space-y-3">
-                            {data.paymentTerms?.map((term, index) => (
-                                <div key={index} className="flex gap-2 items-start bg-gray-50/50 p-2 rounded-lg border border-gray-200">
-                                    <div className="flex-1">
-                                        <input
-                                            type="text"
-                                            placeholder="Date / Milestone"
-                                            value={term.date}
-                                            onChange={(e) => {
-                                                const newTerms = [...data.paymentTerms];
-                                                newTerms[index].date = e.target.value;
-                                                updateData('paymentTerms', newTerms);
-                                            }}
-                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
-                                        />
-                                    </div>
-                                    <div className="flex-[2]">
-                                        <input
-                                            type="text"
-                                            placeholder="Particulars"
-                                            value={term.particulars}
-                                            onChange={(e) => {
-                                                const newTerms = [...data.paymentTerms];
-                                                newTerms[index].particulars = e.target.value;
-                                                updateData('paymentTerms', newTerms);
-                                            }}
-                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
-                                        />
-                                    </div>
-                                    <div className="flex-1">
-                                        <input
-                                            type="text"
-                                            placeholder="Amount"
-                                            value={term.amount}
-                                            onChange={(e) => {
-                                                const newTerms = [...data.paymentTerms];
-                                                newTerms[index].amount = e.target.value;
-                                                updateData('paymentTerms', newTerms);
-                                            }}
-                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
-                                        />
-                                    </div>
-                                    {data.paymentTerms.length > 1 && (
-                                        <button
-                                            onClick={() => {
-                                                const newTerms = data.paymentTerms.filter((_, i) => i !== index);
-                                                updateData('paymentTerms', newTerms);
-                                            }}
-                                            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
-                                            title="Remove Row"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /></svg>
-                                        </button>
-                                    )}
+                <div className="mt-2">
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Payment Terms</label>
+                    <div className="space-y-3">
+                        {data.paymentTerms?.map((term, index) => (
+                            <div key={index} className="flex gap-2 items-start bg-gray-50/50 p-2 rounded-lg border border-gray-200">
+                                <div className="flex-1">
+                                    <input
+                                        type="text"
+                                        placeholder="Date / Milestone"
+                                        value={term.date}
+                                        onChange={(e) => {
+                                            const newTerms = [...data.paymentTerms];
+                                            newTerms[index].date = e.target.value;
+                                            updateData('paymentTerms', newTerms);
+                                        }}
+                                        className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                    />
                                 </div>
-                            ))}
-                            <button
-                                onClick={() => {
-                                    const newTerms = [...data.paymentTerms, { date: '', particulars: '', amount: '' }];
-                                    updateData('paymentTerms', newTerms);
-                                }}
-                                className="mt-2 text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
-                                Add Row
-                            </button>
-                        </div>
+                                <div className="flex-[2]">
+                                    <input
+                                        type="text"
+                                        placeholder="Particulars"
+                                        value={term.particulars}
+                                        onChange={(e) => {
+                                            const newTerms = [...data.paymentTerms];
+                                            newTerms[index].particulars = e.target.value;
+                                            updateData('paymentTerms', newTerms);
+                                        }}
+                                        className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                    />
+                                </div>
+                                <div className="flex-1">
+                                    <input
+                                        type="text"
+                                        placeholder="Amount"
+                                        value={term.amount}
+                                        onChange={(e) => {
+                                            const newTerms = [...data.paymentTerms];
+                                            newTerms[index].amount = e.target.value;
+                                            updateData('paymentTerms', newTerms);
+                                        }}
+                                        className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                    />
+                                </div>
+                                {data.paymentTerms.length > 1 && (
+                                    <button
+                                        onClick={() => {
+                                            const newTerms = data.paymentTerms.filter((_, i) => i !== index);
+                                            updateData('paymentTerms', newTerms);
+                                        }}
+                                        className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                                        title="Remove Row"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /></svg>
+                                    </button>
+                                )}
+                            </div>
+                        ))}
+                        <button
+                            onClick={() => {
+                                const newTerms = [...data.paymentTerms, { date: '', particulars: '', amount: '' }];
+                                updateData('paymentTerms', newTerms);
+                            }}
+                            className="mt-2 text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+                            Add Row
+                        </button>
                     </div>
                 </div>
             </section>

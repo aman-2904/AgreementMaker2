@@ -357,6 +357,12 @@ const AgreementDocument = ({ data }) => {
                     <Text style={[styles.bold, { marginBottom: 5 }]}>PAYMENT TERMS</Text>
                     <Text style={{ marginBottom: 5 }}>As agreed, the deposit schedule for your block will be as per this schedule: <Text style={styles.bold}>{data.currency || 'INR'}</Text></Text>
 
+                    {(data.additionalPaymentText || []).map((text, index) => (
+                        <Text key={index} style={{ marginBottom: index === (data.additionalPaymentText.length - 1) ? 5 : 2 }}>
+                            {text}
+                        </Text>
+                    ))}
+
                     <View style={styles.table}>
                         {/* Header */}
                         <View style={styles.tableRow}>

@@ -31,6 +31,7 @@ function App() {
     ],
     signatureEmail: '',
     signatureContact: '',
+    additionalPaymentText: [],
     cancellationPolicy: [
       { period: 'More than 180 days', fee: '25 % of Total Estimated Revenue (plus applicable taxes)' },
       { period: 'Between 180- 120 days', fee: '50 % of Total Estimated Revenue (plus applicable taxes)' },
