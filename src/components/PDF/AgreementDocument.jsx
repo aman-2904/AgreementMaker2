@@ -170,7 +170,7 @@ const AgreementDocument = ({ data }) => {
                     </View>
                     <View style={styles.row}>
                         <Text style={styles.label}>Contact:</Text>
-                        <Text style={[styles.value, { color: 'black', backgroundColor: 'transparent' }]}>+91 99908-7771</Text>
+                        <Text style={[styles.value, { color: 'black', backgroundColor: 'transparent' }]}>+91 99908-37771</Text>
                     </View>
                 </View>
 
@@ -220,7 +220,7 @@ const AgreementDocument = ({ data }) => {
 
                 <View style={styles.section}>
                     <Text>
-                        This Agreement defines the terms and conditions under which the Hotel shall provide venue facilities, and the Management Agency shall plan, coordinate, manage, and execute the wedding and related events ("Event") on behalf of the <Text style={styles.bold}>Client</Text>.
+                        This Agreement defines the terms and conditions under which the Hotel shall provide venue facilities, and the Management Agency shall plan, coordinate, manage, and execute the wedding and related events ("Event") on behalf of <Text style={styles.bold}>Client</Text>.
                     </Text>
                 </View>
 

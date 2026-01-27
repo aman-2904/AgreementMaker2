@@ -60,7 +60,7 @@ const AgreementForm = ({ data, updateData }) => {
                         onChange={(e) => updateData('agreementDate', e.target.value)}
                     />
                     <InputGroup
-                        label="Client Name"
+                        label="Client Name (Footer)"
                         value={data.clientName}
                         onChange={(e) => updateData('clientName', e.target.value)}
                         placeholder="e.g. Rahul Verma"
