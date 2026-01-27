@@ -220,7 +220,7 @@ const AgreementDocument = ({ data }) => {
 
                 <View style={styles.section}>
                     <Text>
-                        This Agreement defines the terms and conditions under which the Hotel shall provide venue facilities, and the Management Agency shall plan, coordinate, manage, and execute the wedding and related events ("Event") on behalf of <Text style={styles.bold}>Client</Text>.
+                        This Agreement defines the terms and conditions under which the Hotel shall provide venue facilities, and the Management Agency shall plan, coordinate, manage, and execute the wedding and related events ("Event") on behalf of <Text style={styles.bold}>{data.clientName || 'Client'}</Text>.
                     </Text>
                 </View>
 
