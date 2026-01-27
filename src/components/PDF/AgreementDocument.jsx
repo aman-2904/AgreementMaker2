@@ -316,6 +316,17 @@ const AgreementDocument = ({ data }) => {
                     ))}
                 </View>
 
+                {/* Notes */}
+                <View style={styles.section} wrap={false}>
+                    <Text style={[styles.bold, { marginBottom: 5, textDecoration: 'underline' }]}>NOTE:</Text>
+                    {data.notes && data.notes.map((item, i) => (
+                        <View key={i} style={styles.bulletPoint}>
+                            <Text style={styles.bullet}>•</Text>
+                            <Text>{item}</Text>
+                        </View>
+                    ))}
+                </View>
+
                 <View style={styles.section}>
                     <Text style={styles.bold}>ENSURE COMPLIANCE WITH VENUE POLICIES</Text>
                 </View>

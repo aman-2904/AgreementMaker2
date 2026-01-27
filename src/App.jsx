@@ -54,6 +54,23 @@ function App() {
       'Swimming pool is included. (as per government guidelines with costume mandatory)',
       'Wi-Fi in all rooms.',
       '04 bottles of mineral water (500ml) in room replenish daily.',
+    ],
+    notes: [
+      '02 Welcome drink and 1 dry sweet on Arrival',
+      'Recce room rates from Sunday to Thursday at INR 9000 + Taxes as per availability',
+      'Stay for event team at INR 12000+ taxes CP.',
+      '8 room’s ironing (4 rooms bride’s side & 4 rooms groom’s side)',
+      'Extra person on 28th Apr’2026 at INR 8,000 MAP plus tax',
+      'Extra person on 29th & 30th Apr’2026 at INR 12,000 AP plus taxes',
+      'Kids up to 8yrs. will be on a complimentary basis',
+      'Kids from 9 to 12yrs will be at 50% charges of the extra person rates',
+      'Kids above 12yrs. to be considered as adult',
+      'Alcohol Discount -',
+      'After Party Food – either supper @ 1000 plus tax which includes 02 starter, 01 main course, Maggie & 01 dessert or from chai adda',
+      'Music Licenses will be required as applicable',
+      'Chai adda, Chaat & Salon can be outsourced',
+      'German hanger if utilized will be charged as per rental decided by management.',
+      'Décor from the in-house vendor.',
     ]
   });
 
