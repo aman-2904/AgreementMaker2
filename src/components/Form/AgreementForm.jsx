@@ -355,6 +355,89 @@ const AgreementForm = ({ data, updateData }) => {
                 </div>
             </section>
 
+
+
+            <section>
+                <SectionHeader title="Menu Grid" />
+                <div className="grid grid-cols-1 gap-5">
+                    <div>
+                        <div className="flex gap-2 mb-2 font-semibold text-sm text-gray-700">
+                            <div className="flex-1">Lunch (Veg)</div>
+                            <div className="flex-1">Dinner (Veg)</div>
+                            <div className="flex-1">Hi-Tea</div>
+                            <div className="w-8"></div>
+                        </div>
+                        <div className="space-y-3">
+                            {data.menuGrid?.map((row, index) => (
+                                <div key={index} className="flex gap-2 items-start bg-gray-50/50 p-2 rounded-lg border border-gray-200">
+                                    <div className="flex-1">
+                                        <input
+                                            type="text"
+                                            placeholder="Lunch Item"
+                                            value={row.lunch}
+                                            onChange={(e) => {
+                                                const newGrid = [...data.menuGrid];
+                                                newGrid[index].lunch = e.target.value;
+                                                updateData('menuGrid', newGrid);
+                                            }}
+                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                        />
+                                    </div>
+                                    <div className="flex-1">
+                                        <input
+                                            type="text"
+                                            placeholder="Dinner Item"
+                                            value={row.dinner}
+                                            onChange={(e) => {
+                                                const newGrid = [...data.menuGrid];
+                                                newGrid[index].dinner = e.target.value;
+                                                updateData('menuGrid', newGrid);
+                                            }}
+                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                        />
+                                    </div>
+                                    <div className="flex-1">
+                                        <input
+                                            type="text"
+                                            placeholder="Hi-Tea Item"
+                                            value={row.hiTea}
+                                            onChange={(e) => {
+                                                const newGrid = [...data.menuGrid];
+                                                newGrid[index].hiTea = e.target.value;
+                                                updateData('menuGrid', newGrid);
+                                            }}
+                                            className="block w-full rounded-lg border-gray-300 bg-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:ring-opacity-50 text-sm p-2 border"
+                                        />
+                                    </div>
+                                    {data.menuGrid.length > 1 && (
+                                        <button
+                                            onClick={() => {
+                                                const newGrid = data.menuGrid.filter((_, i) => i !== index);
+                                                updateData('menuGrid', newGrid);
+                                            }}
+                                            className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                                            title="Remove Row"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /></svg>
+                                        </button>
+                                    )}
+                                </div>
+                            ))}
+                            <button
+                                onClick={() => {
+                                    const newGrid = [...data.menuGrid, { lunch: '', dinner: '', hiTea: '' }];
+                                    updateData('menuGrid', newGrid);
+                                }}
+                                className="mt-2 text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="M12 5v14" /></svg>
+                                Add Row
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section>
                 <SectionHeader title="Payment Details" />
                 <div className="grid grid-cols-1 gap-5">

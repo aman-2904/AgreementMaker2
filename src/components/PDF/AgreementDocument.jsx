@@ -327,6 +327,27 @@ const AgreementDocument = ({ data }) => {
                     ))}
                 </View>
 
+                {/* Menu Grid */}
+                <View style={[styles.section, { marginTop: -5 }]}>
+                    <Text style={[styles.bold, { marginBottom: 3, textDecoration: 'underline' }]}>MENU GRID:</Text>
+                    <View style={styles.table}>
+                        {/* Header */}
+                        <View style={styles.tableRow} fixed>
+                            <View style={[styles.tableColHeader, { width: '33.33%' }]}><Text style={styles.tableCellHeader}>Lunch (Veg)</Text></View>
+                            <View style={[styles.tableColHeader, { width: '33.33%' }]}><Text style={styles.tableCellHeader}>Dinner (Veg)</Text></View>
+                            <View style={[styles.tableColHeader, { width: '33.33%' }]}><Text style={styles.tableCellHeader}>Hi-Tea</Text></View>
+                        </View>
+                        {/* Dynamic Rows */}
+                        {data.menuGrid && data.menuGrid.map((row, index) => (
+                            <View style={styles.tableRow} key={index} wrap={false}>
+                                <View style={[styles.tableCol, { width: '33.33%' }]}><Text style={styles.tableCell}>{row.lunch || ''}</Text></View>
+                                <View style={[styles.tableCol, { width: '33.33%' }]}><Text style={styles.tableCell}>{row.dinner || ''}</Text></View>
+                                <View style={[styles.tableCol, { width: '33.33%' }]}><Text style={styles.tableCell}>{row.hiTea || ''}</Text></View>
+                            </View>
+                        ))}
+                    </View>
+                </View>
+
                 <View style={styles.section}>
                     <Text style={styles.bold}>ENSURE COMPLIANCE WITH VENUE POLICIES</Text>
                 </View>

@@ -71,6 +71,23 @@ function App() {
       'Chai adda, Chaat & Salon can be outsourced',
       'German hanger if utilized will be charged as per rental decided by management.',
       'Décor from the in-house vendor.',
+    ],
+    menuGrid: [
+      { lunch: '04 Starters', dinner: '06 Starters', hiTea: '02 Hot Snacks' },
+      { lunch: '02 Soups', dinner: '02 Soups', hiTea: '01 Cold Snacks' },
+      { lunch: '01 Paneer', dinner: '01 Paneer', hiTea: 'Tea Cakes' },
+      { lunch: '03 Seasonal', dinner: '04 Seasonal', hiTea: 'Assorted cookies' },
+      { lunch: '01 Continental', dinner: '02 Continental', hiTea: 'Tea and coffee' },
+      { lunch: '01 Asian', dinner: '02 Asian', hiTea: '01 Dessert' },
+      { lunch: '01 Dal', dinner: '02 Dal', hiTea: '' },
+      { lunch: '01 Rice', dinner: '02 Rice', hiTea: '' },
+      { lunch: '01 Live Stations', dinner: '03 Live Stations', hiTea: '' },
+      { lunch: '03 Cold Desserts', dinner: '03 Cold Desserts', hiTea: '' },
+      { lunch: '02 Hot Desserts', dinner: '03 Hot Desserts', hiTea: '' },
+      { lunch: '01 Ice Cream', dinner: '02 Ice Cream', hiTea: '' },
+      { lunch: 'APC', dinner: 'APC', hiTea: '' },
+      { lunch: 'Assorted Indian Breads', dinner: 'Assorted Indian Breads', hiTea: '' },
+      { lunch: 'Raita Bar', dinner: 'Raita Bar', hiTea: '' },
     ]
   });
 
