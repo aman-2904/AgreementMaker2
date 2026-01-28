@@ -634,7 +634,7 @@ const AgreementDocument = ({ data }) => {
                 </View>
 
                 {/* AGREED AND ACCEPTED */}
-                <View style={[styles.section, { marginTop: 15 }]}>
+                <View style={[styles.section, { marginTop: 15 }]} wrap={false}>
                     <Text style={[styles.bold, { marginBottom: 15 }]}>
                         AGREED AND ACCEPTED BY <Text style={{ backgroundColor: 'transparent' }}>{data.clientName || 'Client Name'}</Text>. AND SHAADI PLATFORM BY NOSH N SHOTS.
                     </Text>
