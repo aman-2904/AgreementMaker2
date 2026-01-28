@@ -77,6 +77,34 @@ const styles = StyleSheet.create({
         borderTopWidth: 0,
         padding: 5,
     },
+    // Specialized Menu Grid Styles (to ensure it's "closed")
+    menuTable: {
+        display: "table",
+        width: "100%",
+        borderStyle: "solid",
+        borderTopWidth: 1,
+        marginBottom: 15,
+    },
+    menuRow: {
+        flexDirection: "row",
+        borderLeftWidth: 1,
+        borderLeftStyle: "solid",
+    },
+    menuCol: {
+        width: "33.33%",
+        borderStyle: "solid",
+        borderBottomWidth: 1,
+        borderRightWidth: 1, // This represents internal and right-most lines
+        padding: 5,
+    },
+    menuColHeader: {
+        width: "33.33%",
+        borderStyle: "solid",
+        borderBottomWidth: 1,
+        borderRightWidth: 1,
+        backgroundColor: '#E0F2F1',
+        padding: 5,
+    },
     tableCellHeader: {
         margin: "auto",
         fontSize: 10,
@@ -347,19 +375,19 @@ const AgreementDocument = ({ data }) => {
                 {/* Menu Grid */}
                 <View style={[styles.section, { marginTop: -5 }]}>
                     <Text style={[styles.bold, { marginBottom: 3, textDecoration: 'underline' }]}>MENU GRID:</Text>
-                    <View style={styles.table}>
+                    <View style={styles.menuTable}>
                         {/* Header */}
-                        <View style={styles.tableRow} fixed>
-                            <View style={[styles.tableColHeader, { width: '33.33%' }]}><Text style={styles.tableCellHeader}>Lunch (Veg)</Text></View>
-                            <View style={[styles.tableColHeader, { width: '33.33%' }]}><Text style={styles.tableCellHeader}>Dinner (Veg)</Text></View>
-                            <View style={[styles.tableColHeader, { width: '33.33%' }]}><Text style={styles.tableCellHeader}>Hi-Tea</Text></View>
+                        <View style={styles.menuRow} fixed>
+                            <View style={styles.menuColHeader}><Text style={styles.tableCellHeader}>Lunch (Veg)</Text></View>
+                            <View style={styles.menuColHeader}><Text style={styles.tableCellHeader}>Dinner (Veg)</Text></View>
+                            <View style={styles.menuColHeader}><Text style={styles.tableCellHeader}>Hi-Tea</Text></View>
                         </View>
                         {/* Dynamic Rows */}
                         {data.menuGrid && data.menuGrid.map((row, index) => (
-                            <View style={styles.tableRow} key={index} wrap={false}>
-                                <View style={[styles.tableCol, { width: '33.33%' }]}><Text style={styles.tableCell}>{row.lunch || ''}</Text></View>
-                                <View style={[styles.tableCol, { width: '33.33%' }]}><Text style={styles.tableCell}>{row.dinner || ''}</Text></View>
-                                <View style={[styles.tableCol, { width: '33.33%' }]}><Text style={styles.tableCell}>{row.hiTea || ''}</Text></View>
+                            <View style={styles.menuRow} key={index} wrap={false}>
+                                <View style={styles.menuCol}><Text style={styles.tableCell}>{row.lunch || ''}</Text></View>
+                                <View style={styles.menuCol}><Text style={styles.tableCell}>{row.dinner || ''}</Text></View>
+                                <View style={styles.menuCol}><Text style={styles.tableCell}>{row.hiTea || ''}</Text></View>
                             </View>
                         ))}
                     </View>
