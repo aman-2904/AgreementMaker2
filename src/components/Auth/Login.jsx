@@ -70,9 +70,7 @@ const Login = ({ onLogin }) => {
                         Sign In
                     </button>
 
-                    <div className="text-center text-xs text-gray-400 mt-4">
-                        Default: admin@example.com / password123
-                    </div>
+
                 </form>
             </div>
         </div>
