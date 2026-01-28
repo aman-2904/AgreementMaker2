@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 import AgreementDocument from './components/PDF/AgreementDocument';
 import AgreementForm from './components/Form/AgreementForm';
-import { FileDown, Printer } from 'lucide-react';
+import Login from './components/Auth/Login';
+import { FileDown, Printer, LogOut } from 'lucide-react';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [agreementData, setAgreementData] = useState({
     agreementDate: new Date().toISOString().split('T')[0],
     clientName: '',
@@ -97,6 +99,14 @@ function App() {
     setAgreementData(prev => ({ ...prev, [field]: value }));
   };
 
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  if (!isAuthenticated) {
+    return <Login onLogin={handleLogin} />;
+  }
+
   return (
     <div className="flex h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 font-sans overflow-hidden">
       {/* Left Panel - Form */}
@@ -109,23 +119,33 @@ function App() {
             <p className="text-sm text-gray-500 mt-1">Generate pixel-perfect agreements instantly.</p>
           </div>
 
-          <PDFDownloadLink
-            document={<AgreementDocument data={agreementData} />}
-            fileName={`Agreement_${agreementData.clientName || 'Client'}.pdf`}
-          >
-            {({ blob, url, loading, error }) => (
-              <button
-                disabled={loading}
-                className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-white shadow-lg transition-all transform hover:scale-105 active:scale-95 ${loading
-                  ? 'bg-gray-400 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-indigo-500/30'
-                  }`}
-              >
-                <FileDown size={18} />
-                {loading ? 'Generating...' : 'Download PDF'}
-              </button>
-            )}
-          </PDFDownloadLink>
+          <div className="flex items-center gap-2">
+            <PDFDownloadLink
+              document={<AgreementDocument data={agreementData} />}
+              fileName={`Agreement_${agreementData.clientName || 'Client'}.pdf`}
+            >
+              {({ blob, url, loading, error }) => (
+                <button
+                  disabled={loading}
+                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-white shadow-lg transition-all transform hover:scale-105 active:scale-95 ${loading
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 hover:shadow-indigo-500/30'
+                    }`}
+                >
+                  <FileDown size={18} />
+                  {loading ? 'Generating...' : 'Download PDF'}
+                </button>
+              )}
+            </PDFDownloadLink>
+
+            <button
+              onClick={() => setIsAuthenticated(false)}
+              className="p-2.5 rounded-full text-red-500 hover:bg-red-50 transition-colors border border-transparent hover:border-red-200"
+              title="Logout"
+            >
+              <LogOut size={20} />
+            </button>
+          </div>
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 scrollbar-hide">
