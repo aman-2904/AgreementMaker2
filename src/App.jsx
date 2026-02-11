@@ -3,7 +3,8 @@ import { PDFViewer, PDFDownloadLink } from '@react-pdf/renderer';
 import AgreementDocument from './components/PDF/AgreementDocument';
 import AgreementForm from './components/Form/AgreementForm';
 import Login from './components/Auth/Login';
-import { FileDown, Printer, LogOut } from 'lucide-react';
+import { FileDown, Printer, LogOut, FileText } from 'lucide-react';
+import { generateWordDocument } from './utils/generateWordDocument';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -120,6 +121,13 @@ function App() {
           </div>
 
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => generateWordDocument(agreementData)}
+              className="flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-white shadow-lg transition-all transform hover:scale-105 active:scale-95 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 hover:shadow-green-500/30"
+            >
+              <FileText size={18} />
+              Download Word
+            </button>
             <PDFDownloadLink
               document={<AgreementDocument data={agreementData} />}
               fileName={`Agreement_${agreementData.clientName || 'Client'}.pdf`}
